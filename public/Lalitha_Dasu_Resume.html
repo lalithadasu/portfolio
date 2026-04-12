@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lalitha Sravanti Dasu - Resume</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 10.5pt;
+      color: #000;
+      background: #fff;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.55in 0.65in;
+      line-height: 1.35;
+    }
+
+    /* ---- Header ---- */
+    .header { text-align: center; margin-bottom: 6px; }
+    .header h1 {
+      font-size: 18pt;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+    .contact-line {
+      font-size: 9.5pt;
+      color: #000;
+    }
+    .contact-line a { color: #000; text-decoration: none; }
+
+    /* ---- Section ---- */
+    .section { margin-top: 9px; }
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1.2px solid #000;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* ---- Education ---- */
+    .edu-entry { margin-bottom: 5px; }
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .edu-school { font-weight: bold; font-size: 10.5pt; }
+    .edu-date { font-style: italic; font-size: 10.5pt; white-space: nowrap; }
+    .edu-degree { font-size: 10pt; }
+    .edu-coursework { font-size: 9.5pt; }
+    .edu-coursework span { font-weight: bold; }
+
+    /* ---- Skills ---- */
+    .skills-line { font-size: 10pt; margin-bottom: 3px; }
+    .skills-line b { font-weight: bold; }
+
+    /* ---- Experience ---- */
+    .exp-entry { margin-bottom: 6px; }
+    .exp-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .exp-company { font-weight: bold; font-size: 10.5pt; }
+    .exp-location { font-style: italic; font-size: 10pt; }
+    .exp-role-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .exp-role { font-weight: bold; font-size: 10pt; }
+    .exp-date { font-style: italic; font-size: 10pt; white-space: nowrap; }
+    ul { padding-left: 16px; margin-top: 2px; }
+    ul li { font-size: 10pt; margin-bottom: 1.5px; }
+
+    /* ---- Projects ---- */
+    .proj-entry { margin-bottom: 6px; }
+    .proj-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .proj-title { font-weight: bold; font-size: 10pt; }
+    .proj-date { font-style: italic; font-size: 10pt; white-space: nowrap; }
+    .proj-published { font-style: italic; font-size: 9.5pt; margin-bottom: 2px; }
+    .proj-published a { color: #000; }
+
+    /* ---- Activities ---- */
+    .act-entry { margin-bottom: 2px; font-size: 10pt; }
+
+    @media print {
+      body { padding: 0.5in 0.6in; }
+      @page { margin: 0; size: letter; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Lalitha Sravanti Dasu</h1>
+    <div class="contact-line">
+      Davis, CA &nbsp;|&nbsp; (530) 376-9089 &nbsp;|&nbsp;
+      <a href="mailto:dasusravanti@gmail.com">dasusravanti@gmail.com</a> &nbsp;|&nbsp;
+      <a href="https://linkedin.com/in/lalitha-sravanti-dasu" target="_blank">linkedin.com/in/lalitha-sravanti-dasu</a> &nbsp;|&nbsp;
+      <a href="https://github.com/lalithadasu" target="_blank">github.com/lalithadasu</a> &nbsp;|&nbsp;
+      <a href="https://[your-portfolio-url].vercel.app" target="_blank">[your-portfolio-url].vercel.app</a>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu-entry">
+      <div class="edu-row">
+        <span class="edu-school">M.S. in Computer Science - University of California, Davis</span>
+        <span class="edu-date">09/25 to 06/27</span>
+      </div>
+      <div class="edu-coursework"><span>Coursework:</span> Statistics for Machine Learning, Visual Analytics, Unsupervised Learning, Foundations of LLMs, Machine Learning &amp; Discovery, Theory of Computation, Computer Networks</div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-row">
+        <span class="edu-school">B.Tech in Computer Science &amp; Engineering - PES University, Bengaluru</span>
+        <span class="edu-date">08/19 to 05/23</span>
+      </div>
+      <div class="edu-coursework"><span>Coursework:</span> Data Structures &amp; Algorithms, Software Engineering, Computer Network Security, Object-Oriented Design</div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-line"><b>Languages:</b> Java, Python, C/C++, JavaScript</div>
+    <div class="skills-line"><b>Frameworks &amp; ML:</b> Spring Boot, React.js, Node.js, Next.js, PyTorch, scikit-learn, Flask, librosa</div>
+    <div class="skills-line"><b>ML/AI:</b> LLM fine-tuning (SimPO, DPO), beta-VAE, UMAP, K-Means, GMM, mel spectrograms, MFCC, generative modeling</div>
+    <div class="skills-line"><b>Tools &amp; DBs:</b> Git, Linux, Docker, Postman, Jira, GitHub Copilot, Claude Code, MySQL, MongoDB, Sybase, vLLM, SLURM</div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <!-- Rubinet Lab -->
+    <div class="exp-entry">
+      <div class="exp-header-row">
+        <span class="exp-company">Rubinet Lab, UC Davis</span>
+        <span class="exp-location">Davis, USA</span>
+      </div>
+      <div class="exp-role-row">
+        <span class="exp-role">Graduate Researcher</span>
+        <span class="exp-date">03/26 to Present</span>
+      </div>
+      <ul>
+        <li>Implemented AlpacaEval 2 pipeline with Qwen3.5-9B as local judge, matching GPT-4 Turbo within 1% for SimPO and DPO.</li>
+        <li>Resolved Qwen3.5 parsing failures by migrating to vLLM server with logprob-based judging, annotating 805 samples.</li>
+        <li>Fine-tuned Mistral-7B with SimPO and DPO on HPC cluster (SLURM, 8x A100 GPUs) for preference optimization research.</li>
+      </ul>
+    </div>
+
+    <!-- ASUCD Pantry -->
+    <div class="exp-entry">
+      <div class="exp-header-row">
+        <span class="exp-company">ASUCD Pantry, UC Davis</span>
+        <span class="exp-location">Davis, USA</span>
+      </div>
+      <div class="exp-role-row">
+        <span class="exp-role">Software Developer</span>
+        <span class="exp-date">10/25 to Present</span>
+      </div>
+      <ul>
+        <li>Developed a full-stack volunteer management system (Next.js, React, Prisma) with CAS auth, scaling to 100+ volunteers.</li>
+      </ul>
+    </div>
+
+    <!-- JPMorgan Full-time -->
+    <div class="exp-entry">
+      <div class="exp-header-row">
+        <span class="exp-company">JPMorgan Chase &amp; Co.</span>
+        <span class="exp-location">Bengaluru, India</span>
+      </div>
+      <div class="exp-role-row">
+        <span class="exp-role">Software Engineer, Backend Developer</span>
+        <span class="exp-date">06/23 to 08/25</span>
+      </div>
+      <ul>
+        <li>Designed and deployed scalable RESTful APIs and Spring Boot microservices for the MBS desk, supporting 20+ applications.</li>
+        <li>Built a Java/Spring Boot trade booking application replacing legacy systems, saving $2.1M annually.</li>
+        <li>Redesigned bulk data loading jobs using Java parallel processing and SQL optimization, reducing runtime by 63%.</li>
+        <li>Improved code quality via GitHub Copilot-assisted refactoring, upgrading 5+ legacy systems to Java 21 and Spring Boot 3.3.x.</li>
+        <li>Configured Splunk dashboards and logging for 4 components to monitor API health and reduce production debugging time.</li>
+        <li>Remediated security vulnerabilities across 8 Java components using Fortify static code analysis.</li>
+        <li>Delivered production hot fixes within 5 hours during support rotations, maintaining system reliability.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ACADEMIC PROJECTS -->
+  <div class="section">
+    <div class="section-title">Academic Projects</div>
+
+    <div class="proj-entry">
+      <div class="proj-header-row">
+        <span class="proj-title">Music Genre Discovery via beta-Variational Autoencoder - UC Davis (Unsupervised Learning)</span>
+        <span class="proj-date">Winter 2026</span>
+      </div>
+      <ul>
+        <li>Built a convolutional beta-VAE in PyTorch on GTZAN (9,981 mel spectrogram segments, 10 genres) with no label supervision.</li>
+        <li>Designed KL warmup + 128-dim latent space; achieved val loss 134.51 and reconstruction MSE range 0.003 to 0.006.</li>
+        <li>Post-hoc GMM clustering on UMAP-reduced latents: ARI=0.1841, NMI=0.2798, competitive with the literature.</li>
+        <li>Validated generative quality via MFCC/spectral KDE comparison; demonstrated smooth Classical to Metal interpolation.</li>
+      </ul>
+    </div>
+
+    <div class="proj-entry">
+      <div class="proj-header-row">
+        <span class="proj-title">Personal Portfolio Website</span>
+        <span class="proj-date">Apr 2026</span>
+      </div>
+      <ul>
+        <li>Designed and built a full-stack portfolio site using Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.</li>
+        <li>Used Claude Code to accelerate development, gaining hands-on experience with AI-assisted full-stack engineering workflows.</li>
+        <li>Implemented custom animations, responsive layouts, a custom cursor, and dynamic project/experience pages.</li>
+      </ul>
+    </div>
+
+    <div class="proj-entry">
+      <div class="proj-header-row">
+        <span class="proj-title">Risk-Based Adaptive Identity Authentication System</span>
+        <span class="proj-date">PES University, 2023</span>
+      </div>
+      <div class="proj-published">
+        <b>Published:</b> <a href="#">[Paper Link]</a> Cybernetics and Information Technologies, Vol. 23, No. 2, 2023
+      </div>
+      <ul>
+        <li>Designed zero-trust risk-scoring algorithms for 5 real-time use cases for travel, location, device, browser, and credential risk.</li>
+        <li>Built a dynamic risk analysis system (Java, Spring Boot, MySQL) integrating Microsoft Graph API and Azure AD logs.</li>
+        <li>Displayed risk scores on an admin dashboard; mitigated risky users via Azure AD Risk Investigation group.</li>
+        <li>Best Capstone Project 2023, PES University (Network &amp; Cybersecurity domain).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS & ACTIVITIES -->
+  <div class="section">
+    <div class="section-title">Achievements &amp; Activities</div>
+    <ul>
+      <li>Won SEPathon hackathon at JPMorgan Chase &amp; Co. (2023); member of JPMorgan AI for Tech research team.</li>
+      <li>PES University MRD Scholarship, top 20% of the CS batch in Semesters 2, 3, and 4.</li>
+      <li>Volunteered with Rubinet Lab's Brains to Classrooms program, teaching neuroscience to students at St. Hope PS7 (Mar 2026).</li>
+    </ul>
+  </div>
+
+</body>
+</html>
