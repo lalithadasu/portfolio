@@ -120,10 +120,9 @@ export default function AboutSection() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 40 }}>
               {[
                 "✈️  Avid traveller",
-                "🎵  Carnatic classical singer · 10 yrs",
+                "🎵  Carnatic classical singer",
                 "🏆  Karnataka Music Exam · Distinction",
                 "🧠  LLM researcher",
-                "🤝  STEM outreach volunteer",
                 "🤖  Built this site with Claude Code",
               ].map((chip) => (
                 <span

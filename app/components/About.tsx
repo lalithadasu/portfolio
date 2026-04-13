@@ -151,9 +151,8 @@ export default function About() {
           >
             {[
               { icon: "✈️", text: "Avid traveller" },
-              { icon: "🎵", text: "Carnatic classical singer · 10 yrs" },
+              { icon: "🎵", text: "Carnatic classical singer" },
               { icon: "🏆", text: "Karnataka Music Junior Grade · Distinction" },
-              { icon: "🤝", text: "STEM outreach volunteer" },
               { icon: "🧠", text: "LLM researcher" },
               { icon: "☕", text: "Coffee + code enthusiast" },
             ].map((chip) => (
