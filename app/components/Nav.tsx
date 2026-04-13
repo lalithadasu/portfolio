@@ -47,28 +47,8 @@ export default function Nav() {
           justifyContent: "space-between",
         }}
       >
-        {/* Monogram */}
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 38,
-            height: 38,
-            borderRadius: 10,
-            background: "rgba(0,0,0,0.06)",
-            border: "1px solid rgba(0,0,0,0.12)",
-            color: "var(--text)",
-            textDecoration: "none",
-            fontFamily: "var(--font-syne)",
-            fontWeight: 700,
-            fontSize: 17,
-            letterSpacing: "-0.02em",
-          }}
-        >
-          LD
-        </Link>
+        {/* Home link — invisible spacer to keep flex layout balanced */}
+        <Link href="/" style={{ display: "block", width: 38, height: 38, textDecoration: "none" }} aria-label="Home" />
 
         {/* Desktop links */}
         <div

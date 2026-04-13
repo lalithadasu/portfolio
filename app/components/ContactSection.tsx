@@ -1,9 +1,57 @@
 "use client";
 import { useState } from "react";
 
+type Status = "idle" | "sending" | "success" | "error";
+
 export default function ContactSection() {
-  const [name, setName] = useState("");
+  const [name, setName]       = useState("");
+  const [email, setEmail]     = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus]   = useState<Status>("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "5bac6ef4-ba29-4ace-9ede-b5cbecb474c2",
+          name,
+          email,
+          message,
+          subject: `Portfolio message from ${name}`,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const inputStyle: React.CSSProperties = {
+    fontFamily: "var(--font-inter)",
+    fontSize: 14,
+    color: "var(--text)",
+    background: "var(--bg-warm)",
+    border: "1px solid var(--border)",
+    borderRadius: 14,
+    padding: "16px 20px",
+    outline: "none",
+    transition: "border-color 0.2s",
+    width: "100%",
+  };
 
   return (
     <section
@@ -67,7 +115,7 @@ export default function ContactSection() {
               margin: "0 0 24px",
             }}
           >
-            Let&apos;s Talk →
+            Let&apos;s Talk
           </h2>
           <p
             style={{
@@ -105,72 +153,140 @@ export default function ContactSection() {
             drop me a message ✦
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            <input
-              type="text"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+          {status === "success" ? (
+            <div
               style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: 14,
-                color: "var(--text)",
                 background: "var(--bg-warm)",
-                border: "1px solid var(--border)",
-                borderRadius: 14,
-                padding: "16px 20px",
-                outline: "none",
-                transition: "border-color 0.2s",
-                width: "100%",
+                border: "1px solid rgba(201,123,75,0.3)",
+                borderRadius: 18,
+                padding: "40px 32px",
+                textAlign: "center",
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-            />
-            <textarea
-              placeholder="What's on your mind?"
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: 14,
-                color: "var(--text)",
-                background: "var(--bg-warm)",
-                border: "1px solid var(--border)",
-                borderRadius: 14,
-                padding: "16px 20px",
-                outline: "none",
-                transition: "border-color 0.2s",
-                width: "100%",
-                resize: "vertical",
-              }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-            />
-            <a
-              href={`mailto:dasusravanti@gmail.com?subject=Hey Lalitha!&body=${encodeURIComponent(message)}`}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 8,
-                background: "var(--accent)",
-                color: "#fff",
-                textDecoration: "none",
-                padding: "15px 32px",
-                borderRadius: 999,
-                fontFamily: "var(--font-inter)",
-                fontSize: 15,
-                fontWeight: 700,
-                transition: "opacity 0.15s",
-                alignSelf: "flex-start",
-              }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
             >
-              Send Message ✦
-            </a>
-          </div>
+              <p style={{ fontSize: 32, marginBottom: 12 }}>✦</p>
+              <p
+                style={{
+                  fontFamily: "var(--font-syne)",
+                  fontSize: 18,
+                  fontWeight: 700,
+                  color: "var(--accent)",
+                  marginBottom: 8,
+                }}
+              >
+                Message sent!
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: 14,
+                  color: "#888",
+                  marginBottom: 24,
+                }}
+              >
+                Thanks for reaching out. I&apos;ll get back to you within 24 to 48 hours.
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: "var(--accent)",
+                  background: "transparent",
+                  border: "1px solid rgba(201,123,75,0.4)",
+                  borderRadius: 999,
+                  padding: "8px 22px",
+                  cursor: "pointer",
+                  transition: "all 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "rgba(201,123,75,0.08)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                }}
+              >
+                Send another
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <input
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
+                onBlur={(e)  => (e.currentTarget.style.borderColor = "var(--border)")}
+              />
+              <input
+                type="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
+                onBlur={(e)  => (e.currentTarget.style.borderColor = "var(--border)")}
+              />
+              <textarea
+                placeholder="What's on your mind?"
+                rows={5}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                style={{ ...inputStyle, resize: "vertical" }}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
+                onBlur={(e)  => (e.currentTarget.style.borderColor = "var(--border)")}
+              />
+
+              {status === "error" && (
+                <p
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: 13,
+                    color: "#c0392b",
+                    margin: 0,
+                  }}
+                >
+                  Something went wrong. Please try again or email me directly.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 8,
+                  background: status === "sending" ? "rgba(201,123,75,0.55)" : "var(--accent)",
+                  color: "#fff",
+                  border: "none",
+                  padding: "15px 32px",
+                  borderRadius: 999,
+                  fontFamily: "var(--font-inter)",
+                  fontSize: 15,
+                  fontWeight: 700,
+                  cursor: status === "sending" ? "default" : "pointer",
+                  transition: "opacity 0.15s, background 0.15s",
+                  alignSelf: "flex-start",
+                }}
+                onMouseEnter={(e) => {
+                  if (status !== "sending")
+                    (e.currentTarget as HTMLElement).style.opacity = "0.85";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.opacity = "1";
+                }}
+              >
+                {status === "sending" ? "Sending…" : "Send Message ✦"}
+              </button>
+            </form>
+          )}
         </div>
       </div>
 
@@ -189,38 +305,19 @@ export default function ContactSection() {
           gap: 16,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "var(--font-syne)",
-              fontWeight: 700,
-              fontSize: 16,
-              color: "var(--text)",
-            }}
-          >
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: 16, color: "var(--text)" }}>
             LD
           </div>
-          <span
-            style={{
-              fontFamily: "var(--font-inter)",
-              fontSize: 13,
-              color: "#bbb",
-            }}
-          >
+          <span style={{ fontFamily: "var(--font-inter)", fontSize: 13, color: "#bbb" }}>
             © 2026 Lalitha Sravanti Dasu. All rights reserved.
           </span>
         </div>
         <div style={{ display: "flex", gap: 24 }}>
           {[
             { label: "LinkedIn", href: "https://linkedin.com/in/lalitha-sravanti-dasu" },
-            { label: "GitHub", href: "https://github.com/lalithadasu" },
-            { label: "Resume", href: "/Lalitha_Dasu_Resume.pdf" },
+            { label: "GitHub",   href: "https://github.com/lalithadasu" },
+            { label: "Resume",  href: "/Lalitha_Dasu_Resume.pdf" },
           ].map((l) => (
             <a
               key={l.label}

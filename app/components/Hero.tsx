@@ -48,31 +48,54 @@ export default function Hero() {
       >
         {/* Left: Text */}
         <div style={{ flex: 1, minWidth: 0 }}>
-          {/* Category label */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "6px 16px",
-              borderRadius: 999,
-              border: "1px solid rgba(0,0,0,0.15)",
-              marginBottom: 28,
-              background: "rgba(255,255,255,0.8)",
-            }}
-          >
-            <p
+          {/* Memoji avatar + category label row */}
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
+            {/* Memoji badge */}
+            <div
               style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: 12,
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "var(--text)",
-                margin: 0,
+                width: 72,
+                height: 72,
+                borderRadius: 20,
+                overflow: "hidden",
+                flexShrink: 0,
+                boxShadow: "0 6px 20px rgba(0,0,0,0.18)",
               }}
             >
-              AI Engineer · Graduate Researcher
-            </p>
+              <Image
+                src="/memoji.png"
+                alt="Lalitha memoji"
+                width={72}
+                height={72}
+                unoptimized
+                style={{ objectFit: "contain", objectPosition: "center center", display: "block" }}
+              />
+            </div>
+
+            {/* Category pill */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "6px 16px",
+                borderRadius: 999,
+                border: "1px solid rgba(0,0,0,0.15)",
+                background: "rgba(255,255,255,0.8)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--text)",
+                  margin: 0,
+                }}
+              >
+                AI Engineer · Graduate Researcher
+              </p>
+            </div>
           </div>
 
           {/* Name */}

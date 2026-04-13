@@ -97,8 +97,7 @@ export default function AboutSection() {
             >
               My current research focuses on LLM preference optimization: fine-tuning Mistral-7B
               with SimPO and DPO, and building evaluation pipelines that match GPT-4 Turbo&apos;s
-              accuracy at a fraction of the cost. I specialize in the full pipeline: from training
-              on HPC clusters to deploying scalable inference APIs.
+              accuracy at a fraction of the cost. 
             </p>
 
             <p
